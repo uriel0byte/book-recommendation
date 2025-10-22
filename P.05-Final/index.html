@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <!-- SEO Meta Tags -->
+    <title>Placing the Suspect Behind the Keyboard: DFIR Investigative Mindset โดย Brett Shavers</title>
+    <meta name="description" content="หนังสือ DFIR Investigative Mindset โดย Brett Shavers สอนกระบวนการคิดเชิงสืบสวนอาชญากรรมไซเบอร์ เรียนรู้การวิเคราะห์หลักฐานดิจิทัล การระบุผู้กระทำความผิดและเทคนิคการสืบสวนที่มีประสิทธิภาพ">
+    <meta name="keywords" content="DFIR, Digital Forensics, Incident Response, Brett Shavers, การสืบสวนคดีไซเบอร์, นิติวิทยาศาสตร์ดิจิทัล, Investigative Mindset, กระบวนการคิดเชิงสืบสวน, หลักฐานดิจิทัล, Cyber Crime Investigation, แนะนำหนังสือ, หนังสือดี, ไซเบอร์, เทคนิคการสืบสวน, สืบสวนอาชญากรรมไซเบอร์, นักสืบไซเบอร์">
+    <meta name="author" content="Digital Dexter">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Thai">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Placing the Suspect Behind the Keyboard: DFIR Investigative Mindset">
+    <meta property="og:description" content="หนังสือที่จะเปลี่ยนวิธีคิดของคุณในการสืบสวนอาชญากรรมไซเบอร์ โดย Brett Shavers ผู้เชี่ยวชาญด้าน DFIR">
+    <meta property="og:site_name" content="Digital Dexter - DFIR Archives">
+    <meta property="og:locale" content="th_TH">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts - Thai Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS-->
+    <link rel="stylesheet" href="css/style3.css">
+
+</head>
+
+<body>
+
+    <!-- Access Granted Overlay -->
+    <div id="access-granted-overlay">
+        <div class="access-text">ACCESS GRANTED</div>
+        <div class="access-subtext">🔍 DFIR SYSTEM INITIALIZED</div>
+        <div class="scanning-line"></div>
+    </div>
+
+    <!-- Loading Screen -->
+<div id="loading-screen">
+    <canvas id="loading-canvas"></canvas>
+    <div class="loading-text">INITIALIZING DFIR SYSTEM...</div>
+    <div class="loading-subtitle">🔍 Digital Dexter</div>
+    
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+        <div class="progress-text" id="progress-text">0%</div>
+    </div>
+</div>
+
+    <!-- Matrix Rain Canva Background -->
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- Navigation Bar -->
+     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                🔍 Digital Dexter
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#hero">หน้าแรก</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">เกี่ยวกับหนังสือ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">สกิลที่ได้รับ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#summary">สรุป</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#more">ข้อมูลเพิ่มเติม</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+     <section class="hero-section py-5 crime-scene-texture" id="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                
+                <div class="col-lg-7 py-5">
+                    <div class="evidence-tag mb-4">
+                        CASE FILE: 2024
+                    </div>
+                    <h1 class="display-5 fw-bold mb-4" style="color: #e0e0e0; text-shadow: 3px 3px 6px rgba(0,0,0,0.8); line-height: 1.2;">
+                        Placing the Suspect Behind the Keyboard:
+                        <br/><span style="color: var(--crime-yellow); font-size: 0.8em;">DFIR Investigative Mindset</span>
+                    </h1>
+                    <p class="lead mb-3" style="color: #e0e0e0; font-size: 1.3rem;">
+                        โดย Brett Shavers
+                    </p>
+                    <p style="color: var(--text-muted); font-size: 1rem;">
+                        หนังสือที่จะเปลี่ยนวิธีคิดของคุณในการสืบสวนอาชญากรรมไซเบอร์ไปตลอดกาล
+                    </p>
+                    
+                    <div class="d-flex flex-wrap mt-4">
+                        <span class="case-file-badge me-2 mb-2" style="background-color: var(--crime-red); border-color: var(--text-primary);">Forensic Rigor</span>
+                        <span class="case-file-badge me-2 mb-2" style="background-color: var(--evidence-blue); border-color: var(--text-primary);">Practical Skills</span>
+                        <span class="case-file-badge me-2 mb-2" style="background-color: var(--dark-accent); border-color: var(--text-primary);">Investigative Mindset</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-10 text-center p-3">
+                    <div class="investigation-card rounded mb-4">
+                        <div class="casebook-img" style="height: 350px;">
+                             <img src="images/New Project.png" alt="Book Cover" class="img-fluid">
+                        
+                        <div class="p-3">
+                            <h4 class="mb-2" style="color: var(--crime-yellow);">Case Files Await</h4>
+                            <p style="color: var(--text-primary); font-size: 0.95rem; margin-bottom: 0;">
+                                More than tools, it's about the mindset. Start your inquiry now.
+                            </p>
+                        </div>
+                        </div>
+                    </div>
+                    <a href="#about" class="btn btn-investigate btn-lg px-5 py-3 w-100">
+                        Begin Your Inquiry
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Statement Section -->
+     <section class="py-5" style="background-color: var(--dark-secondary);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="investigation-card p-4 h-100 rounded text-center">
+                                <div class="mb-4">⚠️</div>
+                                <h2 class="mb-4" style="color: #ffd700; font-size: 2rem;">
+                                    เครื่องมือวิเคราะห์ข้อมูลมีมากมาย แล้วทำไมคดีบางคดีถึงแก้ไม่ได้?
+                                </h2>
+                                <p style="color: #e0e0e0; font-size: 1.2rem; line-height: 1.8;">
+                                    เพราะการไขคดีอาชญากรรมไซเบอร์ต้องการมากกว่าเทคนิค<br/>
+                                    ต้องการ <span class="highlight-text">"ศิลปะแห่งการคิดเชิงสืบสวน"</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="row g-4">
+                                <div class="col-12">
+                                    <div class="investigation-card p-4 h-100 rounded">
+                                        <h4 class="mb-3" style="color: var(--crime-yellow);">Focus: The Human Element</h4>
+                                        <p style="color: var(--text-primary); font-size: 0.95rem; margin-bottom: 0;">
+                                            หนังสือเล่มนี้ไม่ได้สอนแค่ว่า "ใช้เครื่องมืออะไร" แต่สอนให้คุณ "คิดอย่างไร" เหมือนนักสืบไซเบอร์ระดับผู้เชี่ยวชาญ เน้นความสำคัญของการเข้าใจแรงจูงใจ การระบุตัวผู้กระทำที่อยู่เบื้องหลังเหตุการณ์ทางไซเบอร์
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="investigation-card p-4 h-100 rounded">
+                                        <h4 class="mb-3" style="color: var(--crime-yellow);">Career Advancement</h4>
+                                        <p style="color: var(--text-primary); font-size: 0.95rem; margin-bottom: 0;">
+                                            หนังสือเล่มนี้จะเปลี่ยนแปลงแนวทางการสืบสวนของคุณโดยผลักดันทักษะของคุณให้พุ่งทะยานขึ้นอย่างมาก ทำให้คุณมีความได้เปรียบเหนือคู่แข่งในตลาดงาน
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Book Section -->
+    <section class="py-5" id="about" style="background-color: var(--dark-primary);">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">
+                หนังสือเล่มนี้จะเปลี่ยนวิธีคิดของคุณได้อย่างไร
+            </h2>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="investigation-card p-0 h-100 rounded">
+                                <div class="casebook-img rounded-top" style="height: 250px; border-bottom: 2px solid var(--crime-yellow);">
+                                    <img src="images/pexels-photo-5380589.jpeg" alt="Book Cover" class="img-fluid">
+                                </div>
+                                <div class="p-4">
+                                    <h3 class="mb-3" style="color: var(--crime-yellow);">DFIR Investigative Mindset</h3>
+                                    <p style="color: #e0e0e0; font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                                        หนังสือ <span class="highlight-text">"Placing the Suspect Behind the Keyboard: DFIR Investigative Mindset"</span> โดย Brett Shavers นำเสนอแนวทางที่แตกต่าง โดยเน้นการพัฒนา <span class="highlight-text">"กระบวนการคิดเชิงสืบสวน"</span> ที่เป็นปัจจัยสำคัญในการไขคดีอาชญากรรมดิจิทัลและการรับมือกับภัยคุกคามทางไซเบอร์
+                                    </p>
+                                    <p style="color: #e0e0e0; font-size: 1.1rem; line-height: 1.9;">
+                                        ไม่ใช่หนังสือคู่มือทางเทคนิคทั่วไป แต่เป็นหนังสือที่จะเปลี่ยนวิธีคิดของคุณไปตลอดกาล
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="investigation-card p-4 mb-4 h-50 rounded">
+                                <h3 class="mb-3" style="color: var(--crime-yellow);">สำหรับนักศึกษาและผู้เริ่มต้น</h3>
+                                <p style="color: #e0e0e0; font-size: 1.1rem; line-height: 1.9;">
+                                    หากคุณเป็นนักศึกษาที่สนใจด้านการรักษาความปลอดภัยทางไซเบอร์ นิติวิทยาศาสตร์ดิจิทัล หรือกฎหมายอาชญากรรมคอมพิวเตอร์ หนังสือเล่มนี้จะเปิดมุมมองใหม่ให้คุณเห็นว่า ความสำเร็จในงานสืบสวนอาชญากรรมดิจิทัลไม่ได้ขึ้นอยู่กับความสามารถทางเทคนิคเพียงอย่างเดียว
+                                </p>
+                            </div>
+                            <div class="investigation-card p-4 h-50 rounded">
+                                <h3 class="mb-3" style="color: var(--crime-yellow);">นำเสนอโดยผู้เชี่ยวชาญ</h3>
+                                <p style="color: #e0e0e0; font-size: 1.1rem; line-height: 1.9;">
+                                    Brett Shavers ผู้เชี่ยวชาญด้าน DFIR ที่มีประสบการณ์มากมาย นำเสนอแผนที่นำทางที่ครอบคลุมสำหรับการพัฒนากระบวนการคิดนี้ ซึ่งจำเป็นสำหรับการเป็นเลิศในการสืบสวนทั้งคดีอาญาและคดีแพ่ง
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <!-- Explore the Casebook -->        
+    <section class="py-5" id="" style="background-color: var(--dark-primary);">
+        <div class="container">
+
+
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="investigation-card p-4 h-100 rounded">
+
+                                <img src="images/pexels-photo-8382280.webp" alt="Book Cover" class="img-fluid">
+                                <button class="btn btn-investigate w-100 mt-3 py-2">
+                                    Investigation
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="investigation-card p-4 h-100 rounded">
+
+                                <img src="images/'.webp" alt="Book Cover" class="img-fluid">
+                                <button class="btn btn-investigate w-100 mt-3 py-2">
+                                    Mystery
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="investigation-card p-4 h-100 rounded">
+                                
+                                <img src="images/pexels-photo-7319149.webp" alt="Book Cover" class="img-fluid">
+                                <button class="btn btn-investigate w-100 mt-3 py-2">
+                                    Ethics
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+            <!-- Why This Book - 4 Key Points -->
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-10">
+                    <h3 class="text-center mb-5 section-title" style="font-size: 2rem;">เพราะอะไร?</h3>
+
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="investigation-card p-4 h-100 rounded">
+                                <div class="d-flex align-items-start mb-3">
+                                    <span class="case-file-badge me-3" style="font-size: 1.2rem; background-color: var(--crime-red);">1</span>
+                                    <h4 style="color: #ffd700; font-size: 1.3rem;">เรียนรู้จากประสบการณ์จริง</h4>
+                                </div>
+                                <p style="color: #e0e0e0; line-height: 1.8;">
+                                    Brett Shavers แบ่งปันประสบการณ์และข้อมูลเชิงลึกจากการทำงานในคดีต่างๆ มากมาย ตั้งแต่การแฮ็กไปจนถึงการจารกรรมและการก่อการร้าย คุณจะได้เรียนรู้เทคนิคเชิงปฏิบัติในการพัฒนาและปรับปรุงทักษะการสืบสวนของคุณ
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="investigation-card p-4 h-100 rounded">
+                                <div class="d-flex align-items-start mb-3">
+                                    <span class="case-file-badge me-3" style="font-size: 1.2rem; background-color: var(--crime-red);">2</span>
+                                    <h4 style="color: #ffd700; font-size: 1.3rem;">มากกว่าเครื่องมือและเทคนิค</h4>
+                                </div>
+                                <p style="color: #e0e0e0; line-height: 1.8;">
+                                    หนังสือเล่มนี้เจาะลึกไปถึงแก่นแท้ของงานสืบสวน ไม่ได้สอนแค่ว่า "ใช้เครื่องมืออะไร" แต่สอนให้คุณ <strong style="color: #ffd700;">"คิดอย่างไร"</strong> เหมือนนักสืบไซเบอร์ระดับผู้เชี่ยวชาญ เน้นความสำคัญของการเข้าใจแรงจูงใจ การระบุตัวผู้กระทำ และองค์ประกอบของมนุษย์ที่อยู่เบื้องหลังเหตุการณ์ทางไซเบอร์
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="investigation-card p-4 h-100 rounded">
+                                <div class="d-flex align-items-start mb-3">
+                                    <span class="case-file-badge me-3" style="font-size: 1.2rem; background-color: var(--crime-red);">3</span>
+                                    <h4 style="color: #ffd700; font-size: 1.3rem;">สร้างความแตกต่างในตลาดแรงงาน</h4>
+                                </div>
+                                <p style="color: #e0e0e0; line-height: 1.8;">
+                                    ไม่ว่าคุณจะเป็นมืออาชีพด้านการบังคับใช้กฎหมาย นักวิเคราะห์ความปลอดภัยขององค์กร หรือผู้ที่สนใจอยากเรียนรู้ หนังสือเล่มนี้จะเปลี่ยนแปลงแนวทางการสืบสวนของคุณโดยผลักดันทักษะของคุณให้พุ่งทะยานขึ้นอย่างมาก ทำให้คุณมีความได้เปรียบเหนือผู้เชี่ยวชาญฝ่ายตรงข้ามและคู่แข่งในตลาดงาน
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="investigation-card p-4 h-100 rounded">
+                                <div class="d-flex align-items-start mb-3">
+                                    <span class="case-file-badge me-3" style="font-size: 1.2rem; background-color: var(--crime-red);">4</span>
+                                    <h4 style="color: #ffd700; font-size: 1.3rem;">ได้รับการยกย่องจากผู้เชี่ยวชาญระดับแนวหน้า</h4>
+                                </div>
+                                <div style="color: #e0e0e0; line-height: 1.8;">
+                                    <p class="mb-3">
+                                        <strong style="color: #ffd700;">Harlan Carvey</strong> ผู้เชี่ยวชาญชั้นนำในวงการกล่าวว่า "หนังสือเล่มนี้คือก้าวที่ห้าในทิศทางที่เราในฐานะอุตสาหกรรมต้องไป เนื้อหานี้ต้องเป็นส่วนหนึ่งของพื้นฐาน..."
+                                    </p>
+                                    <p style="margin-bottom: 0;">
+                                        <strong style="color: #ffd700;">Jessica Hyde</strong> จาก hexorida.com กล่าวว่า "นี่คือหนังสือที่ผู้ตรวจสอบไม่รู้ว่าพวกเขาต้องการ สิ่งที่ยากที่สุดในการสอนในห้องเรียน และเหตุผลที่ทีมที่หลากหลายมีความสำคัญอย่างยิ่ง"
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-5" id="skills" style="background-color: #141821;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">
+                    สกิลที่ได้รับจากหนังสือเล่มนี้
+                </h2>
+                <p style="color: #8a8a8a; font-size: 1.1rem;">สำหรับนักศึกษาและผู้ที่กำลังเริ่มต้นในสายงาน</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="row g-4 mb-4">
+                        <!-- Skill 1 -->
+                        <div class="col-md-4">
+                            <div class="investigation-card p-4 h-100 rounded text-center">
+                                <div class="mb-3">🧠</div>
+                                <h4 style="color: #ffd700; margin-bottom: 1rem;">ทักษะการคิดวิเคราะห์</h4>
+                                <ul style="color: #e0e0e0; line-height: 1.6; list-style-type: none; padding-left: 0; text-align: left; font-size: 0.95rem;">
+                                    <li class="mb-1">✓ เรียนรู้การคิดเชิงวิพากษ์ (Critical Thinking)</li>
+                                    <li class="mb-1">✓ การแก้ปัญหาอย่างมีกลยุทธ์ (Problem-solving)</li>
+                                    <li class="mb-1">✓ การวิเคราะห์ข้อมูล (Data Analysis)</li>
+                                    <li class="mb-1">✓ การเชื่อมโยงหลักฐาน (Evidence Correlation)</li>
+                                    <li>✓ การสร้างทักษะทางปัญญา (Cognitive Skill Building)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Skill 2 -->
+                        <div class="col-md-4">
+                            <div class="investigation-card p-4 h-100 rounded">
+                                <div class="mb-3 text-center">🎯</div>
+                                <h4 style="color: #ffd700; margin-bottom: 1rem; text-align: center;">เข้าใจการทำงานจริงในสนาม</h4>
+                                <blockquote class="blockquote-custom">
+                                    "เมื่อสมองของคุณถูกเปลี่ยนให้เป็นกระบวนการคิดเชิงสืบสวน... ความสนใจจะถูกโฟกัสไปที่การสังเกตหลักฐาน การอนุมานจากหลักฐานทางนิติวิทยาศาสตร์และความเชื่อมโยงจะตะโกนหาคุณเอง"
+                                </blockquote>
+                                <p style="color: #8a8a8a; font-size: 0.9rem; text-align: right; margin-top: 1rem;">- Brett Shavers</p>
+                            </div>
+                        </div>
+
+                        <!-- Skill 3 -->
+                        <div class="col-md-4">
+                            <div class="investigation-card p-4 h-100 rounded text-center">
+                                <div class="mb-3">📈</div>
+                                <h4 style="color: #ffd700; margin-bottom: 1rem;">เติมเต็มช่องว่าง & ได้เปรียบในตลาดงาน</h4>
+                                <p style="color: #e0e0e0; line-height: 1.8; font-size: 0.95rem;">
+                                    หนังสือเล่มนี้ปรับปรุงกระบวนการคิดเชิงสืบสวน มอบมุมมองใหม่สำหรับการคิดเชิงวิพากษ์
+                                </p>
+                                <p style="color: #e0e0e0; line-height: 1.8; font-size: 0.95rem;">
+                                    คุณจะโดดเด่นกว่าผู้สมัครคนอื่นๆ เพราะคุณจะมี <span class="highlight-text">"กระบวนการคิดเชิงสืบสวน"</span> ที่องค์กรต้องการ
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Skill 4 -->
+                        <div class="col-md-6">
+                            <div class="investigation-card p-4 h-100 rounded">
+                                <div class="d-flex align-items-start mb-3">
+                                    <div class="me-3">🛡️</div>
+                                    <div>
+                                        <h4 style="color: #ffd700;">คำรับรองจากผู้ปฏิบัติงาน</h4>
+                                        <p style="color: #e0e0e0; line-height: 1.8; font-size: 0.95rem;">
+                                            <strong style="color: #ffd700;">Chad Gish</strong> (กรมตำรวจ Metro Nashville) กล่าวว่า "หนังสือเล่มนี้ปรับปรุงกระบวนการคิดเชิงสืบสวนของฉัน มอบมุมมองใหม่และเสนอวิธีการเพิ่มเติมสำหรับการคิดเชิงวิพากษ์..."
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 5 -->
+                        <div class="col-md-6">
+                            <div class="investigation-card p-4 h-100 rounded">
+                                <div class="d-flex align-items-start mb-3">
+                                    <div class="me-3">📖</div>
+                                    <div>
+                                        <h4 style="color: #ffd700;">อ่านแล้วติดใจ ไม่อยากวาง</h4>
+                                        <p style="color: #e0e0e0; line-height: 1.8; font-size: 0.95rem;">
+                                            <strong style="color: #ffd700;">Lorie Hermesdorf</strong> (Aurora University) บอกว่า "เป็นเวลานานแล้วที่ฉันไม่ได้อ่านหนังสือที่วางไม่ลง หนังสือ 'The DFIR Investigative Mindset' เป็นหนึ่งในนั้น"
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Summary Section -->
+    <section class="py-5" id="summary" style="background-color: var(--dark-primary);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">
+                    สรุปคุณค่าของการอ่านหนังสือเล่มนี้
+                </h2>
+            </div>
+
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div class="accordion accordion-flush" id="investigationAccordion">
+            
+            <!-- Accordion Item 1: Quote -->
+            <div class="accordion-item" style="background: transparent; border: none;">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed investigation-card" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseQuote" aria-expanded="false" aria-controls="flush-collapseQuote" style="background: rgba(26, 31, 46, 0.6); border: 1px solid rgba(139, 0, 0, 0.3); border-radius: 8px;">
+                        <span style="font-size: 1.2rem; color: #ffd700;">🏆 คำคมที่เปลี่ยนชีวิต</span>
+                    </button>
+                </h2>
+                <div id="flush-collapseQuote" class="accordion-collapse collapse" data-bs-parent="#investigationAccordion">
+                    <div class="accordion-body investigation-card p-5 mb-4 text-center rounded">
+                        <div class="mb-4">🏆</div>
+                        <blockquote style="color: #e0e0e0; font-size: 1.3rem; line-height: 1.9; font-style: italic; margin-bottom: 0;">
+                            "คุณอาจเป็นนักวิเคราะห์ที่มีทักษะทางเทคนิคดีที่สุดในโลก แต่หากปราศจากกระบวนการคิดเชิงสืบสวน คุณก็เป็นเพียงอันดับสองที่ดีที่สุดเท่านั้น<br/>
+                            <span class="highlight-text" style="font-size: 1.1em;">นี่คือหนังสือที่ยกระดับคุณขึ้นไปสู่อันดับหนึ่ง"</span>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accordion Item 2: Main Content -->
+            <div class="accordion-item" style="background: transparent; border: none;">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed investigation-card" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseContent" aria-expanded="false" aria-controls="flush-collapseContent" style="background: rgba(26, 31, 46, 0.6); border: 1px solid rgba(139, 0, 0, 0.3); border-radius: 8px;">
+                        <span style="font-size: 1.2rem; color: #ffd700;">💡 เกี่ยวกับหนังสือเล่มนี้</span>
+                    </button>
+                </h2>
+                <div id="flush-collapseContent" class="accordion-collapse collapse" data-bs-parent="#investigationAccordion">
+                    <div class="accordion-body investigation-card p-4 mb-4 rounded">
+                        <p style="color: #e0e0e0; font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                            หนังสือเล่มนี้ไม่ได้แค่สอนคุณให้ใช้เครื่องมือ แต่สอนให้คุณ <span class="highlight-text">คิด เคลื่อนไหว และแก้ไขอาชญากรรมคอมพิวเตอร์และอาชญากรรมที่อำนวยความสะดวกด้วยคอมพิวเตอร์เหมือนนักสืบไซเบอร์ผู้เชี่ยวชาญ</span>
+                        </p>
+                        <p style="color: #e0e0e0; font-size: 1.1rem; line-height: 1.9;">
+                            หนังสือเล่มนี้ไม่ใช่แค่คู่มือทางเทคนิคอีกเล่มหนึ่ง แต่เป็นเครื่องมือในการสร้าง <span class="highlight-text">"DNA ของนักสืบไซเบอร์"</span> ภายในตัวคุณ ในโลกที่ข้อมูลดิจิทัลสามารถถูกปลอมแปลง ซ่อนเร้น หรือลบทิ้งได้ การมีกระบวนการคิดที่เฉียบแหลมจะช่วยให้คุณสามารถ "วางผู้ต้องสงสัยไว้หลังแป้นพิมพ์" ได้อย่างแม่นยำ
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accordion Item 3: For Students -->
+            <div class="accordion-item" style="background: transparent; border: none;">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed investigation-card" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseStudents" aria-expanded="false" aria-controls="flush-collapseStudents" style="background: rgba(26, 31, 46, 0.6); border: 1px solid rgba(139, 0, 0, 0.3); border-radius: 8px;">
+                        <span style="font-size: 1.2rem; color: #ffd700;">🎓 สำหรับนักศึกษา</span>
+                    </button>
+                </h2>
+                <div id="flush-collapseStudents" class="accordion-collapse collapse" data-bs-parent="#investigationAccordion">
+                    <div class="accordion-body investigation-card p-4 mb-4 rounded">
+                        <p style="color: #e0e0e0; font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.5rem;">
+                            สำหรับนักศึกษาที่ต้องการก้าวเข้าสู่อาชีพด้านความมั่นคงปลอดภัยไซเบอร์ การอ่านหนังสือเล่มนี้เปรียบเสมือนการได้ฝึกงานกับผู้เชี่ยวชาญระดับโลก คุณจะได้เรียนรู้ไม่เพียงแค่ <span class="highlight-text">"ทำอย่างไร"</span> แต่ยังรู้ <span class="highlight-text">"ทำไม"</span> และ <span class="highlight-text">"คิดอย่างไร"</span> ในการแก้ไขคดีอาชญากรรมไซเบอร์
+                        </p>
+                        <p style="color: #e0e0e0; font-size: 1.1rem; line-height: 1.9;">
+                            การลงทุนเวลาอ่านหนังสือเล่มนี้วันนี้ จะเป็นการสร้างรากฐานที่แข็งแกร่งสำหรับอาชีพของคุณในอนาคต เมื่ออาชญากรรมไซเบอร์เติบโตอย่างรวดเร็ว ผู้ที่มีทั้งความรู้ทางเทคนิคและกระบวนการคิดเชิงสืบสวนจะเป็นกำลังสำคัญในการปกป้องโลกดิจิทัล
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Call to Action (Outside Accordion) -->
+        <div class="text-center mt-5">
+            <div class="investigation-card p-5 rounded" style="background: linear-gradient(135deg, #1a1f2e 0%, #0a0e17 100%); border: 3px solid #8b0000;">
+                <h3 class="mb-4" style="color: #ffd700; font-size: 2rem;">
+                    พร้อมที่จะก้าวขึ้นเป็นอันดับหนึ่งแล้วหรือยัง?
+                </h3>
+                <p class="mb-4" style="color: #e0e0e0; font-size: 1.2rem; line-height: 1.8;">
+                    <strong style="color: #ffd700;">"Placing the Suspect Behind the Keyboard: DFIR Investigative Mindset"</strong><br/>
+                    โดย Brett Shavers
+                </p>
+                <p style="color: #ffd700; font-size: 1.3rem; font-weight: bold; margin-bottom: 2rem;">
+                    หนังสือที่จะเปลี่ยนชีวิตการทำงานของคุณไปตลอดกาล
+                </p>
+                <button class="btn btn-investigate btn-lg px-5 py-3"> 
+                    <a class="nav-link" href="https://www.amazon.com/Placing-Suspect-Behind-Keyboard-Investigative/dp/B0CZPJF23Q" target="_blank">🔍 เริ่มต้นที่หนังสือเล่มนี้</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    </section>
+
+    <!-- iFrame More Info -->
+    <section class="py-5" id="more" style="background-color: #141821;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">
+                    ข้อมูลเพิ่มเติม
+                </h2>
+                <p style="color: #8a8a8a; font-size: 1.1rem;">เกี่ยวกับ Digital Forensics and Incident Response (DFIR)</p>
+            </div>
+
+        <div class="container"> <div class="investigation-card p-4 mb-4 rounded">
+                <div class="row g-4"> 
+
+                    <div class="col-md-6"> <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
+                            <iframe src="https://www.youtube.com/embed/maYioXgr6eE?rel=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;" referrerpolicy="strict-origin"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6"> <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
+                            <iframe src="https://www.youtube.com/embed/4sKhFNCaJj4?rel=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;" referrerpolicy="strict-origin"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6"> 
+                        <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
+                            <iframe src="https://www.youtube.com/embed/dFTGmf_BKnA?rel=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;" referrerpolicy="strict-origin"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6"> 
+                        <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.5%;">
+                            <iframe src="https://www.youtube.com/embed/videoseries?list=PLJu2iQtpGvv-2LtysuTTka7dHt9GKUbxD" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" referrerpolicy="strict-origin"></iframe>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center">
+        <div class="container">
+            <p style="color: #8a8a8a; margin: 0;">
+                CLASSIFIED INFORMATION - AUTHORIZED PERSONNEL ONLY
+            </p>
+            <p style="color: #8a8a8a; font-size: 0.85rem; margin-top: 0.5rem;">
+                Digital Dexter &copy; 2025 | Digital Forensics & Incident Response
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+        // Matrix Rain Function (reusable)
+        function createMatrixRain(canvasId, opacity, speed) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const katakana = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+            const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const numbers = '0123456789';
+            const matrix = katakana + katakana + katakana + latin + numbers;
+            const characters = matrix.split('');
+
+            const fontSize = 14;
+            const columns = canvas.width / fontSize;
+
+            const drops = [];
+            for (let i = 0; i < columns; i++) {
+                drops[i] = Math.random() * -100;
+            }
+
+            function draw() {
+                ctx.fillStyle = `rgba(10, 14, 23, ${opacity})`;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.fillStyle = '#0F0';
+                ctx.font = fontSize + 'px monospace';
+
+                for (let i = 0; i < drops.length; i++) {
+                    const text = characters[Math.floor(Math.random() * characters.length)];
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    drops[i]++;
+                }
+            }
+
+            const interval = setInterval(draw, speed);
+
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+
+            return interval;
+        }
+
+        // Start loading screen matrix rain (brighter and faster)
+        createMatrixRain('loading-canvas', 0.05, 30);
+
+        // Start background matrix rain (subtle)
+        createMatrixRain('matrix-canvas', 0.05, 45);
+
+        // Progress Bar Animation
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        const loadingDuration = 4000; // 4 seconds
+        const updateInterval = 50; // Update every 50ms
+        const totalSteps = loadingDuration / updateInterval;
+        let currentStep = 0;
+
+        const progressInterval = setInterval(() => {
+            currentStep++;
+            const percentage = Math.min((currentStep / totalSteps) * 100, 100);
+            progressBar.style.width = percentage + '%';
+            progressText.textContent = Math.floor(percentage) + '%';
+
+            if (currentStep >= totalSteps) {
+                clearInterval(progressInterval);
+            }
+        }, updateInterval);
+
+        // Hide loading screen after 4 seconds
+    setTimeout(() => {
+    const loadingScreen = document.getElementById('loading-screen');
+    loadingScreen.classList.add('fade-out');
+    
+    // Remove loading screen from DOM after fade out
+    setTimeout(() => {
+        loadingScreen.remove();
+        
+        // Show Access Granted
+        const overlay = document.getElementById('access-granted-overlay');
+        overlay.classList.add('show');
+        
+        // Hide after 2.5 seconds (longer display time)
+        setTimeout(() => {
+        overlay.classList.remove('show');
+        overlay.classList.add('hide');
+        }, 2500); // Changed from 2000 to 2500
+    }, 500);
+}, loadingDuration);
+    </script>
+</body>
+</html>
