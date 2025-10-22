@@ -1,0 +1,171 @@
+
+        :root {
+            --dark-primary: #0a0e17;
+            --dark-secondary: #141821;
+            --dark-accent: #1a1f2e;
+            --crime-red: #8b0000;
+            --crime-yellow: #ffd700;
+            --evidence-blue: #1e3a5f;
+            --text-primary: #e0e0e0;
+            --text-muted: #8a8a8a;
+        }
+
+        body {
+            background-color: var(--dark-primary);
+            color: var(--text-primary);
+            font-family: 'Courier New', monospace;
+        }
+
+        .crime-scene-texture {
+            background-image: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 0, 0, 0.1) 2px,
+                rgba(0, 0, 0, 0.1) 4px
+            );
+        }
+
+        .evidence-tag {
+            background: linear-gradient(135deg, var(--crime-yellow) 0%, #b8860b 100%);
+            color: var(--dark-primary);
+            padding: 0.25rem 0.75rem;
+            font-weight: bold;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            transform: rotate(-2deg);
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            display: inline-block;
+        }
+
+        .investigation-card {
+            background: var(--dark-secondary);
+            border: 2px solid var(--evidence-blue);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .investigation-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(139, 0, 0, 0.03) 10px,
+                rgba(139, 0, 0, 0.03) 20px
+            );
+            pointer-events: none;
+        }
+
+        .investigation-card:hover {
+            border-color: var(--crime-red);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.3);
+        }
+
+        .navbar-dark {
+            background-color: var(--dark-accent) !important;
+            border-bottom: 2px solid var(--crime-red);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+        }
+
+        .navbar-brand {
+            color: var(--crime-yellow) !important;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-link {
+            color: var(--text-primary) !important;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--crime-yellow) !important;
+        }
+
+        .hero-section {
+            background: linear-gradient(180deg, var(--dark-primary) 0%, var(--dark-secondary) 100%);
+            border-bottom: 3px solid var(--crime-yellow);
+            position: relative;
+        }
+
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                var(--crime-red) 50%,
+                transparent 100%
+            );
+        }
+
+        .btn-investigate {
+            background: linear-gradient(135deg, var(--crime-red) 0%, #5a0000 100%);
+            border: 2px solid var(--crime-yellow);
+            color: var(--text-primary);
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-investigate:hover {
+            background: linear-gradient(135deg, #5a0000 0%, var(--crime-red) 100%);
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.6);
+            transform: scale(1.05);
+            color: var(--crime-yellow);
+        }
+
+        .case-file-badge {
+            background-color: var(--evidence-blue);
+            color: var(--crime-yellow);
+            border: 1px solid var(--crime-yellow);
+            padding: 0.25rem 0.5rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.5px;
+            display: inline-block;
+        }
+
+        .icon-box {
+            width: 48px;
+            height: 48px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            color: var(--crime-yellow);
+            letter-spacing: 2px;
+            font-size: 2.5rem;
+        }
+
+        .blockquote-custom {
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            font-style: italic;
+            border-left: 4px solid var(--crime-red);
+            padding-left: 1.5rem;
+            margin-left: 0;
+        }
+
+        footer {
+            background-color: var(--dark-primary);
+            border-top: 2px solid var(--crime-red);
+        }
+
+        .highlight-text {
+            color: var(--crime-yellow);
+            font-weight: bold;
+        }
